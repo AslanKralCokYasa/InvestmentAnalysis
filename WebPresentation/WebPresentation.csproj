@@ -89,10 +89,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataTransfer\DataTransfer.csproj">
-      <Project>{750cbf7f-2235-41a6-8fb4-308e3fe66d53}</Project>
-      <Name>DataTransfer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{e101d22e-b457-48a2-a1bf-d4c381475697}</Project>
       <Name>Data</Name>
