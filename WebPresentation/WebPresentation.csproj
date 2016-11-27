@@ -95,6 +95,7 @@
     <Content Include="Content\Images\checkbox.gif" />
     <Content Include="Content\Images\datepicker.gif" />
     <Content Include="Content\Images\edit_img.png" />
+    <Content Include="Content\Images\FMI.png" />
     <Content Include="Content\Images\forms-btn.gif" />
     <Content Include="Content\Images\green-ball.gif" />
     <Content Include="Content\Images\icon-error.png" />

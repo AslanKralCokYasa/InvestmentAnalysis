@@ -66,8 +66,8 @@
     <form id="form1" runat="server" class="valid">
     <div id="wrapper">
         <div id="container">
-            <div class="hide-btn top">
-            </div>
+        <%--    <div class="hide-btn top">
+            </div>--%>
             <div class="hide-btn center">
             </div>
             <div class="hide-btn bottom">
@@ -118,10 +118,6 @@
                                 Forecast Your Investment</a></li>
                             <li><a href="../Transactions/DealerManagement/Dealer.aspx">
                                 Dummy1</a></li>
-                            <li><a href="../Transactions/ProgramManagement/Program.aspx">
-                                Dummy2</a></li>
-                            <li><a href="../Transactions/OtherManagement/CompanyBalance.aspx">
-                                Dummy3</a></li>
                         </ul>
                     </div>
                 </div>
