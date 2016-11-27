@@ -1,0 +1,168 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="InvestmentAnalysisMasterPage.master.cs" Inherits="WebPresentation.MasterPage.InvestmentAnalysisMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Investment Analysis</title>
+    <style type="text/css">
+        @import url("../Content/Themes/style.css");
+        @import url("../Content/Themes/forms.css");
+        @import url("../Content/Themes/forms-btn.css");
+        @import url("../Content/Themes/menu.css");
+        @import url("../Content/Themes/style_text.css");
+        @import url("../Content/Themes/datatables.css");
+        @import url("../Content/Themes/fullcalendar.css");
+        @import url("../Content/Themes/pirebox.css");
+        @import url("../Content/Themes/modalwindow.css");
+        @import url("../Content/Themes/statics.css");
+        @import url("../Content/Themes/tabs-toggle.css");
+        @import url("../Content/Themes/system-message.css");
+        @import url("../Content/Themes/tooltip.css");
+        @import url("../Content/Themes/wizard.css");
+        @import url("../Content/Themes/wysiwyg.css");
+        @import url("../Content/Themes/wysiwyg.modal.css");
+        @import url("../Content/Themes/wysiwyg-editor.css");
+    </style>
+    <!--[if lte IE 8]>
+		<script type="text/javascript" src="../Content/Js/excanvas.min.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../Content/Js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.backgroundPosition.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.ui.1.8.17.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.ui.select.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.ui.spinner.js"></script>
+    <script type="text/javascript" src="../Content/Js/superfish.js"></script>
+    <script type="text/javascript" src="../Content/Js/supersubs.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.datatables.js"></script>
+    <script type="text/javascript" src="../Content/Js/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.smartwizard-2.0.min.js"></script>
+    <script type="text/javascript" src="../Content/Js/pirobox.extended.min.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.elastic.source.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.customInput.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.metadata.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.filestyle.mini.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.filter.input.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.flot.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.flot.pie.min.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.flot.resize.min.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.graphtable-0.2.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="../Content/Js/Controls/wysiwyg.image.js"></script>
+    <script type="text/javascript" src="../Content/Js/Controls/wysiwyg.link.js"></script>
+    <script type="text/javascript" src="../Content/Js/Controls/wysiwyg.table.js"></script>
+    <script type="text/javascript" src="../Content/Js/Plugins/wysiwyg.rmFormat.js"></script>
+    <script type="text/javascript" src="../Content/Js/jQuery.glob.js"></script>
+    <script type="text/javascript" src="../Content/Js/jQuery.glob.tr-TR.js"></script>
+    <script type="text/javascript" src="../Content/Js/jquery.GlobalMoneyInput.js"></script>
+    <script type="text/javascript" src="../Content/Js/costum.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" class="valid">
+    <div id="wrapper">
+        <div id="container">
+            <div class="hide-btn top">
+            </div>
+            <div class="hide-btn center">
+            </div>
+            <div class="hide-btn bottom">
+            </div>
+            <div id="top">
+                <h1 id="logo">
+                    <a href="../Default.aspx"></a>
+                </h1>
+                <div id="labels">
+                    <%--<ul>
+                        <li><a href="../Transactions/Profile/Profile.aspx" class="user">
+                            <span class="bar">
+                                <asp:Literal runat="server" ID="ltUserName" /></span></a></li>
+                        <li><a href="../Admin/UserManagement/UserManagement.aspx"
+                            class="settings"></a></li>
+                        <li>
+                            <asp:LinkButton runat="server" ID="btnLogOut" CausesValidation="false" CssClass="logout"
+                                />
+                        </li>
+                    </ul>--%>
+                </div>
+                <div id="menu">
+                    <div id="breadcrumb">
+                        <asp:SiteMapPath ID="SiteMapPath1" runat="server" PathSeparator=" > " OnItemCreated="SiteMapPath1_ItemCreated">
+                            <NodeTemplate>
+                                <%#Eval("Title")%>
+                            </NodeTemplate>
+                        </asp:SiteMapPath>
+                    </div>
+                    <%--  <div id="customer">
+                        <asp:Literal runat="server" ID="ltAktifFirma" />
+                    </div>--%>
+                </div>
+            </div>
+            <div id="left">
+                <%--<div class="box search">
+                    <div class="content">
+                        <input type="text" value="" placeholder="Arama" />
+                        <button type="submit">
+                        </button>
+                    </div>
+                </div>--%>
+                <div class="box submenu">
+                    <div class="content">
+                        <ul>
+                            <li><a href="../Default.aspx">Ana Sayfa</a></li>
+                            <li><a href="../Transactions/OrganizationManagement/Organization.aspx">
+                                Forecast Your Investment</a></li>
+                            <li><a href="../Transactions/DealerManagement/Dealer.aspx">
+                                Dummy1</a></li>
+                            <li><a href="../Transactions/ProgramManagement/Program.aspx">
+                                Dummy2</a></li>
+                            <li><a href="../Transactions/OtherManagement/CompanyBalance.aspx">
+                                Dummy3</a></li>
+                        </ul>
+                    </div>
+                </div>
+               <%-- <div class="box statics">
+                    <div class="content">
+                        <ul>
+                            <li>
+                                <h2>
+                                    Istatistikler</h2>
+                            </li>
+                            <li>Toplam Kullanıcı
+                                <div class="info blue">
+                                    <span>
+                                        <asp:Literal runat="server" ID="ltTotalUsers" /></span></div>
+                            </li>
+                            <li>Online Kullanıcı
+                                <div class="info green">
+                                    <span>
+                                        <asp:Literal runat="server" ID="ltTotalOnlineUsers" /></span></div>
+                            </li>
+                            <li>Offline Kullanıcı
+                                <div class="info red">
+                                    <span>
+                                        <asp:Literal runat="server" ID="ltTotalOfflineUsers" /></span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>--%>
+                <%--<div class="box togglemenu">
+                <uc1:UCSonOnDuyuru ID="UCSonOnDuyuru1" runat="server" />
+			</div>--%>
+            </div>
+            <div id="right">
+                <asp:PlaceHolder runat="server" ID="UCPlaceHolder" />
+                <div class="section">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

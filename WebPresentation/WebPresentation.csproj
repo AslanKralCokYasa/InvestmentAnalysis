@@ -82,23 +82,273 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\back-spinners.gif" />
+    <Content Include="Content\Images\background.gif" />
+    <Content Include="Content\Images\box-hide.png" />
+    <Content Include="Content\Images\box-shadow.gif" />
+    <Content Include="Content\Images\box-title.gif" />
+    <Content Include="Content\Images\browse.gif" />
+    <Content Include="Content\Images\btn-box-small.gif" />
+    <Content Include="Content\Images\btn-box.gif" />
+    <Content Include="Content\Images\btn-info.gif" />
+    <Content Include="Content\Images\btn-search.gif" />
+    <Content Include="Content\Images\checkbox.gif" />
+    <Content Include="Content\Images\datepicker.gif" />
+    <Content Include="Content\Images\edit_img.png" />
+    <Content Include="Content\Images\forms-btn.gif" />
+    <Content Include="Content\Images\green-ball.gif" />
+    <Content Include="Content\Images\icon-error.png" />
+    <Content Include="Content\Images\icon-info.png" />
+    <Content Include="Content\Images\icon-submenu-on.gif" />
+    <Content Include="Content\Images\icon-submenu.gif" />
+    <Content Include="Content\Images\icon-succes.png" />
+    <Content Include="Content\Images\icon-warning.png" />
+    <Content Include="Content\Images\icons\big\alert.png" />
+    <Content Include="Content\Images\icons\big\archive.png" />
+    <Content Include="Content\Images\icons\big\basket.png" />
+    <Content Include="Content\Images\icons\big\calculator.png" />
+    <Content Include="Content\Images\icons\big\calendar.png" />
+    <Content Include="Content\Images\icons\big\cancel.png" />
+    <Content Include="Content\Images\icons\big\cart.png" />
+    <Content Include="Content\Images\icons\big\chat.png" />
+    <Content Include="Content\Images\icons\big\check.png" />
+    <Content Include="Content\Images\icons\big\color-picker.png" />
+    <Content Include="Content\Images\icons\big\comment.png" />
+    <Content Include="Content\Images\icons\big\connect.png" />
+    <Content Include="Content\Images\icons\big\construction.png" />
+    <Content Include="Content\Images\icons\big\controls.png" />
+    <Content Include="Content\Images\icons\big\copy.png" />
+    <Content Include="Content\Images\icons\big\cut.png" />
+    <Content Include="Content\Images\icons\big\dashboard.png" />
+    <Content Include="Content\Images\icons\big\database.png" />
+    <Content Include="Content\Images\icons\big\display.png" />
+    <Content Include="Content\Images\icons\big\document.png" />
+    <Content Include="Content\Images\icons\big\door.png" />
+    <Content Include="Content\Images\icons\big\edit.png" />
+    <Content Include="Content\Images\icons\big\equalizer.png" />
+    <Content Include="Content\Images\icons\big\export.png" />
+    <Content Include="Content\Images\icons\big\favourite.png" />
+    <Content Include="Content\Images\icons\big\file-edit.png" />
+    <Content Include="Content\Images\icons\big\file-remove.png" />
+    <Content Include="Content\Images\icons\big\file.png" />
+    <Content Include="Content\Images\icons\big\fire.png" />
+    <Content Include="Content\Images\icons\big\folder-open.png" />
+    <Content Include="Content\Images\icons\big\folder.png" />
+    <Content Include="Content\Images\icons\big\help.png" />
+    <Content Include="Content\Images\icons\big\idea.png" />
+    <Content Include="Content\Images\icons\big\login.png" />
+    <Content Include="Content\Images\icons\big\logout.png" />
+    <Content Include="Content\Images\icons\big\messages.png" />
+    <Content Include="Content\Images\icons\big\movie.png" />
+    <Content Include="Content\Images\icons\big\photo.png" />
+    <Content Include="Content\Images\icons\big\pollution.png" />
+    <Content Include="Content\Images\icons\big\preferences.png" />
+    <Content Include="Content\Images\icons\big\print.png" />
+    <Content Include="Content\Images\icons\big\register.png" />
+    <Content Include="Content\Images\icons\big\search.png" />
+    <Content Include="Content\Images\icons\big\settings.png" />
+    <Content Include="Content\Images\icons\big\sitemap.png" />
+    <Content Include="Content\Images\icons\big\standby.png" />
+    <Content Include="Content\Images\icons\big\star.png" />
+    <Content Include="Content\Images\icons\big\statics.png" />
+    <Content Include="Content\Images\icons\big\support.png" />
+    <Content Include="Content\Images\icons\big\trash.png" />
+    <Content Include="Content\Images\icons\big\user.png" />
+    <Content Include="Content\Images\icons\big\users.png" />
+    <Content Include="Content\Images\icons\big\volume.png" />
+    <Content Include="Content\Images\icons\big\web.png" />
+    <Content Include="Content\Images\icons\big\wizard.png" />
+    <Content Include="Content\Images\icons\small\alert.png" />
+    <Content Include="Content\Images\icons\small\archive.png" />
+    <Content Include="Content\Images\icons\small\basket.png" />
+    <Content Include="Content\Images\icons\small\calculator.png" />
+    <Content Include="Content\Images\icons\small\calendar.png" />
+    <Content Include="Content\Images\icons\small\cancel.png" />
+    <Content Include="Content\Images\icons\small\cart.png" />
+    <Content Include="Content\Images\icons\small\chat.png" />
+    <Content Include="Content\Images\icons\small\check.png" />
+    <Content Include="Content\Images\icons\small\color-picker.png" />
+    <Content Include="Content\Images\icons\small\comment.png" />
+    <Content Include="Content\Images\icons\small\connect.png" />
+    <Content Include="Content\Images\icons\small\construction.png" />
+    <Content Include="Content\Images\icons\small\controls.png" />
+    <Content Include="Content\Images\icons\small\copy.png" />
+    <Content Include="Content\Images\icons\small\cut.png" />
+    <Content Include="Content\Images\icons\small\dashboard.png" />
+    <Content Include="Content\Images\icons\small\database.png" />
+    <Content Include="Content\Images\icons\small\display.png" />
+    <Content Include="Content\Images\icons\small\document.png" />
+    <Content Include="Content\Images\icons\small\door.png" />
+    <Content Include="Content\Images\icons\small\edit.png" />
+    <Content Include="Content\Images\icons\small\equalizer.png" />
+    <Content Include="Content\Images\icons\small\export.png" />
+    <Content Include="Content\Images\icons\small\favourite.png" />
+    <Content Include="Content\Images\icons\small\file-edit.png" />
+    <Content Include="Content\Images\icons\small\file-remove.png" />
+    <Content Include="Content\Images\icons\small\file.png" />
+    <Content Include="Content\Images\icons\small\fire.png" />
+    <Content Include="Content\Images\icons\small\folder-open.png" />
+    <Content Include="Content\Images\icons\small\folder.png" />
+    <Content Include="Content\Images\icons\small\help.png" />
+    <Content Include="Content\Images\icons\small\idea.png" />
+    <Content Include="Content\Images\icons\small\login.png" />
+    <Content Include="Content\Images\icons\small\logout.png" />
+    <Content Include="Content\Images\icons\small\messages.png" />
+    <Content Include="Content\Images\icons\small\movie.png" />
+    <Content Include="Content\Images\icons\small\photo.png" />
+    <Content Include="Content\Images\icons\small\pollution.png" />
+    <Content Include="Content\Images\icons\small\preferences.png" />
+    <Content Include="Content\Images\icons\small\print.png" />
+    <Content Include="Content\Images\icons\small\register.png" />
+    <Content Include="Content\Images\icons\small\search.png" />
+    <Content Include="Content\Images\icons\small\settings.png" />
+    <Content Include="Content\Images\icons\small\sitemap.png" />
+    <Content Include="Content\Images\icons\small\standby.png" />
+    <Content Include="Content\Images\icons\small\star.png" />
+    <Content Include="Content\Images\icons\small\statics.png" />
+    <Content Include="Content\Images\icons\small\support.png" />
+    <Content Include="Content\Images\icons\small\trash.png" />
+    <Content Include="Content\Images\icons\small\user.png" />
+    <Content Include="Content\Images\icons\small\users.png" />
+    <Content Include="Content\Images\icons\small\volume.png" />
+    <Content Include="Content\Images\icons\small\web.png" />
+    <Content Include="Content\Images\icons\small\wizard.png" />
+    <Content Include="Content\Images\input-back.gif" />
+    <Content Include="Content\Images\jquery.wysiwyg.gif" />
+    <Content Include="Content\Images\kaydet.png" />
+    <Content Include="Content\Images\labels-bar.png" />
+    <Content Include="Content\Images\labels.png" />
+    <Content Include="Content\Images\left-grip.png" />
+    <Content Include="Content\Images\list-arrow.gif" />
+    <Content Include="Content\Images\list-plus.gif" />
+    <Content Include="Content\Images\list-square.gif" />
+    <Content Include="Content\Images\list-tick.gif" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\main-left.png" />
+    <Content Include="Content\Images\menu-current.gif" />
+    <Content Include="Content\Images\menu.png" />
+    <Content Include="Content\Images\message.gif" />
+    <Content Include="Content\Images\onayla.png" />
+    <Content Include="Content\Images\photo.jpg" />
+    <Content Include="Content\Images\pirobox\bottom_nav.png" />
+    <Content Include="Content\Images\pirobox\caption.png" />
+    <Content Include="Content\Images\pirobox\close.png" />
+    <Content Include="Content\Images\pirobox\loadinfo.gif" />
+    <Content Include="Content\Images\pirobox\new_skin.png" />
+    <Content Include="Content\Images\pirobox\new_skin_left.png" />
+    <Content Include="Content\Images\pirobox\new_skin_top.png" />
+    <Content Include="Content\Images\pirobox\next.png" />
+    <Content Include="Content\Images\pirobox\prev.png" />
+    <Content Include="Content\Images\radiobutton.gif" />
+    <Content Include="Content\Images\red-ball.gif" />
+    <Content Include="Content\Images\sag_ok.png" />
+    <Content Include="Content\Images\select-btn.gif" />
+    <Content Include="Content\Images\slider-btn.png" />
+    <Content Include="Content\Images\sol_ok.png" />
+    <Content Include="Content\Images\system-icon.png" />
+    <Content Include="Content\Images\table-btn.gif" />
+    <Content Include="Content\Images\table-filter.gif" />
+    <Content Include="Content\Images\table-select.gif" />
+    <Content Include="Content\Images\table-sort.png" />
+    <Content Include="Content\Images\tabs.gif" />
+    <Content Include="Content\Images\thumb-delete.png" />
+    <Content Include="Content\Images\togglemenu-shadow.gif" />
+    <Content Include="Content\Images\user-photo.gif" />
+    <Content Include="Content\Images\vazgec.png" />
+    <Content Include="Content\Images\yellow-ball.gif" />
+    <Content Include="Content\Js\Controls\wysiwyg.image.js" />
+    <Content Include="Content\Js\Controls\wysiwyg.link.js" />
+    <Content Include="Content\Js\Controls\wysiwyg.table.js" />
+    <Content Include="Content\Js\costum.js" />
+    <Content Include="Content\Js\fullcalendar.min.js" />
+    <Content Include="Content\Js\jquery-1.7.1.min.js" />
+    <Content Include="Content\Js\jquery.backgroundPosition.js" />
+    <Content Include="Content\Js\jquery.customInput.js" />
+    <Content Include="Content\Js\jquery.datatables.js" />
+    <Content Include="Content\Js\jquery.elastic.source.js" />
+    <Content Include="Content\Js\jquery.filestyle.mini.js" />
+    <Content Include="Content\Js\jquery.filter.input.js" />
+    <Content Include="Content\Js\jquery.flot.js" />
+    <Content Include="Content\Js\jquery.flot.pie.min.js" />
+    <Content Include="Content\Js\jquery.flot.resize.min.js" />
+    <Content Include="Content\Js\jquery.glob.js" />
+    <Content Include="Content\Js\jQuery.glob.tr-TR.js" />
+    <Content Include="Content\Js\jquery.GlobalMoneyInput.js" />
+    <Content Include="Content\Js\jquery.graphtable-0.2.js" />
+    <Content Include="Content\Js\jquery.metadata.js" />
+    <Content Include="Content\Js\jquery.placeholder.min.js" />
+    <Content Include="Content\Js\jquery.smartwizard-2.0.min.js" />
+    <Content Include="Content\Js\jquery.tipsy.js" />
+    <Content Include="Content\Js\jquery.ui.1.8.17.js" />
+    <Content Include="Content\Js\jquery.ui.select.js" />
+    <Content Include="Content\Js\jquery.ui.spinner.js" />
+    <Content Include="Content\Js\jquery.validate.min.js" />
+    <Content Include="Content\Js\jquery.wysiwyg.js" />
+    <Content Include="Content\Js\pirobox.extended.min.js" />
+    <Content Include="Content\Js\Plugins\wysiwyg.rmFormat.js" />
+    <Content Include="Content\Js\superfish.js" />
+    <Content Include="Content\Js\supersubs.js" />
+    <Content Include="Content\Themes\datatables.css" />
+    <Content Include="Content\Themes\forms-btn.css" />
+    <Content Include="Content\Themes\forms.css" />
+    <Content Include="Content\Themes\fullcalendar.css" />
+    <Content Include="Content\Themes\menu.css" />
+    <Content Include="Content\Themes\modalwindow.css" />
+    <Content Include="Content\Themes\pirebox.css" />
+    <Content Include="Content\Themes\statics.css" />
+    <Content Include="Content\Themes\style.css" />
+    <Content Include="Content\Themes\style_text.css" />
+    <Content Include="Content\Themes\system-message.css" />
+    <Content Include="Content\Themes\tabs-toggle.css" />
+    <Content Include="Content\Themes\tooltip.css" />
+    <Content Include="Content\Themes\wizard.css" />
+    <Content Include="Content\Themes\wysiwyg-editor.css" />
+    <Content Include="Content\Themes\wysiwyg.css" />
+    <Content Include="Content\Themes\wysiwyg.modal.css" />
+    <Content Include="Default.aspx" />
     <Content Include="packages.config" />
+    <Content Include="MasterPage\InvestmentAnalysisMasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Transactions\DealerManagement\Dealer.aspx" />
+    <Content Include="Transactions\OrganizationManagement\Organization.aspx" />
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage\InvestmentAnalysisMasterPage.Master.cs">
+      <DependentUpon>InvestmentAnalysisMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\InvestmentAnalysisMasterPage.Master.designer.cs">
+      <DependentUpon>InvestmentAnalysisMasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transactions\DealerManagement\Dealer.aspx.cs">
+      <DependentUpon>Dealer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transactions\OrganizationManagement\Organization.aspx.cs">
+      <DependentUpon>Organization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
@@ -110,6 +360,7 @@
       <Name>Logic</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

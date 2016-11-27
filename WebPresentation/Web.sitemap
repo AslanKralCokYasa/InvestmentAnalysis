@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title=""  description="">
+
+    <siteMapNode title="Ana Sayfa" url="~/Default.aspx"  />
+
+    <!--siteMapNode title="Ana Sayfa"-->
+
+    <siteMapNode title="Yönetim Paneli">
+      <siteMapNode url="~/Admin/RoleManagement/RoleManagement.aspx" title="Kullanıcı Yönetimi"  description="" />
+      <siteMapNode url="~/Admin/UserManagement/UserManagement.aspx" title="Rol Yönetimi"  description="" />
+    </siteMapNode>
+
+    <siteMapNode title="Organizasyon Yönetim Paneli">
+      <siteMapNode url="~/Transactions/OrganizationManagement/Organization.aspx" title="Organizasyonlar"  description="" />
+    </siteMapNode>
+
+    <siteMapNode title="Bayi Yönetim Paneli">
+      <siteMapNode url="~/Transactions/DealerManagement/Dealer.aspx" title="Bayiler"  description="" />
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>
