@@ -16,7 +16,6 @@ namespace Data
             //Database.SetInitializer<InvestmentAnalysisContext>(null);
         }
 
-        public DbSet<FinancialInstrument> FinancialInstruments { get; set; }
         public DbSet<HistoricalDataBlock> HistoricalDataBlocks { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
