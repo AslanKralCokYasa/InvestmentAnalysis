@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EMA\ExponentialMovingAverage.cs" />
+    <Compile Include="HelperMethods\HelperMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RSI\RelativeStrengthIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
