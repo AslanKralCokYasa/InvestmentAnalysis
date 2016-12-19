@@ -1,4 +1,5 @@
-﻿using Data.DataStructure;
+﻿using Data;
+using Data.DataStructure;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -20,26 +21,51 @@ namespace DataTransfer
         /// </summary>
         /// <param name="symbol">Financial Instrument Symbol</param>
         /// <param name="startDate">Format: YYYY.MM.dd</param>
-        public static void FetchHistoricalData(string symbol, string name, DateTime startDate, DateTime endDate)
+        public static void FetchHistoricalData(DateTime startDate, DateTime endDate, string symbol, string name, string sector)
         {
             string date = endDate.ToString("yyyy.MM.dd");
 
             JArray dataArray = JArray.Parse(getData(symbol, date));
 
-            foreach (JObject dataObject in dataArray.Children<JObject>())
+            DateTime controlDate = DateTime.MinValue;
+
+            using (InvestmentAnalysisContext context = new InvestmentAnalysisContext())
             {
-                foreach (JProperty data in dataObject.Properties())
+                context.Configuration.AutoDetectChangesEnabled = false;
+                context.Configuration.ValidateOnSaveEnabled = false;
+
+                foreach (JToken data in dataArray.Children())
                 {
-                    HistoricalDataBlock historicalDataBlock = new HistoricalDataBlock();
+                    controlDate = DateTime.Parse(data[5].Value<String>());
 
-                    historicalDataBlock.Symbol = symbol;
-                    historicalDataBlock.Name = name;
+                    if (!(controlDate > startDate))
+                        break;
 
+                    HistoricalDataBlock historicalDataBlock = context.HistoricalDataBlocks.Where(q => q.Symbol.Equals(symbol) && q.RecordDate == controlDate).SingleOrDefault();
 
+                    if (null == historicalDataBlock)
+                    {
+                        historicalDataBlock = new HistoricalDataBlock();
 
-                    throw new NotImplementedException();
+                        historicalDataBlock.Symbol = symbol;
+                        historicalDataBlock.Name = name;
+                        historicalDataBlock.Sector = sector;
+                        historicalDataBlock.MinPrice = decimal.Parse(data[1].Value<string>());
+                        historicalDataBlock.MaxPrice = decimal.Parse(data[2].Value<string>());
+                        historicalDataBlock.LastPrice = decimal.Parse(data[3].Value<string>());
+                        historicalDataBlock.Volume = long.Parse(data[4].Value<String>().Remove(data[4].Value<String>().IndexOf(',')).Replace(".", ""));
+                        historicalDataBlock.RecordDate = DateTime.Parse(data[5].Value<String>());
+
+                        context.Entry(historicalDataBlock).State = System.Data.Entity.EntityState.Added;
+                    }
                 }
+
+                context.SaveChanges();
             }
+
+            if (controlDate > startDate)
+                FetchHistoricalData(startDate, controlDate, symbol, name, sector);
+
         }
 
         private static string getData(string symbol, string date)

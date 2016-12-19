@@ -16,24 +16,33 @@ namespace Data.DataStructure
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
-        [Index("IX_SYMBOL", IsUnique = true)]
+        [Column(TypeName = "NVARCHAR")]
+        [StringLength(10)]
+        [Index("IX_SYMBOL", IsUnique = false)]
         [Required]
         public string Symbol { get; set; }
 
+        [Column(TypeName = "NVARCHAR")]
+        [StringLength(100)]
         [Required]
         public string Name { get; set; }
 
+        [Column(TypeName = "NVARCHAR")]
+        [StringLength(100)]
+        [Required]
+        public string Sector { get; set; }
+
         [Required]
         public DateTime RecordDate { get; set; }
-
-        [Required]
-        public decimal LastPrice { get; set; }
-
+        
         [Required]
         public decimal MinPrice { get; set; }
 
         [Required]
         public decimal MaxPrice { get; set; }
+
+        [Required]
+        public decimal LastPrice { get; set; }
 
         [Required]
         public long Volume { get; set; }
