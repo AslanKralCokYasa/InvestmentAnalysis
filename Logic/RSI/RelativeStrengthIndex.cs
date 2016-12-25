@@ -8,7 +8,7 @@ namespace Logic.RSI
 {
     public class RelativeStrengthIndex
     {
-        public static double CalculateRSI(IEnumerable<double> closePrices)
+        private static double Calculate(IEnumerable<double> closePrices)
         {
             var prices = closePrices as double[] ?? closePrices.ToArray();
 
@@ -27,12 +27,28 @@ namespace Logic.RSI
                 }
             }
 
-            //if (sumGain == 0) return 0;
+            if (sumGain == 0) return 0;
             //if (Math.Abs(sumLoss) < Tolerance) return 100;
 
             var relativeStrength = sumGain / sumLoss;
 
             return 100.0 - (100.0 / (1 + relativeStrength));
+        }
+
+        public static double[] Calculate(double[] closePrices)
+        {
+            var prices = closePrices.ToArray();
+            int period = 14;
+            int resultLength = prices.Length - period + 1;
+
+            var results = new double[resultLength];
+            
+            for (int i = resultLength-1; i >= 0; i--)
+            {
+                results[i] = Calculate(prices.Skip(resultLength - i).Take(period));
+            }
+
+            return results;
         }
     }
 }

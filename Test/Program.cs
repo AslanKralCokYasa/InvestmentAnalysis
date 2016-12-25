@@ -17,7 +17,10 @@ namespace Test
                 context.Database.Initialize(false);
             }
 
-            double[] ema = HelperMethods.CalculateEMA("GARAN", 240, 21);
+            //double[] ema_21 = HelperMethods.CalculateEMA("GARAN", 240, 21);
+            //double[] ema_50 = HelperMethods.CalculateEMA("GARAN", 240, 50);
+
+            double[] rsi = HelperMethods.CalculateRSI("GARAN", 14);
 
             Console.WriteLine("OK.");
         }

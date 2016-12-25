@@ -43,7 +43,7 @@ namespace Logic.HelperMethods
             closePricesData.Add(23.63);
             closePricesData.Add(23.82);
             closePricesData.Add(23.87);
-            RelativeStrengthIndex.CalculateRSI(closePricesData.ToArray());
+            RelativeStrengthIndex.Calculate(closePricesData.ToArray());
         }
 
         public static double[] CalculateEMA(string symbol, int window, int period)
@@ -61,6 +61,23 @@ namespace Logic.HelperMethods
             }
 
             return ExponentialMovingAverage.Calculate(closePrices, period);
+        }
+
+        public static double[] CalculateRSI(string symbol, int window)
+        {
+            double[] closePrices = null;
+
+            using (InvestmentAnalysisContext context = new InvestmentAnalysisContext())
+            {
+                closePrices = context.HistoricalDataBlocks
+                    .Where(q => q.Symbol.Equals(symbol))
+                    .OrderByDescending(q => q.RecordDate)
+                    .Take(window)
+                    .Select(c => (double)c.LastPrice)
+                    .ToArray();
+            }
+
+            return RelativeStrengthIndex.Calculate(closePrices.Reverse().ToArray());
         }
     }
 }
