@@ -1,4 +1,6 @@
-﻿using Logic.EMA;
+﻿using Data;
+using Data.DataStructure;
+using Logic.EMA;
 using Logic.RSI;
 using System;
 using System.Collections.Generic;
@@ -10,16 +12,27 @@ namespace Logic.HelperMethods
 {
     public class HelperMethods
     {
-        public static void CalculateEMA()
+        public static double[] CalculateEMA()
         {
-            int windowLength = 5;
+            int period = 10;
+
             IList<double> data = new List<double>();
-            data.Add(23.83);
-            data.Add(23.95);
-            data.Add(23.63);
-            data.Add(23.82);
-            data.Add(23.87);
-            ExponentialMovingAverage.CalculateExponentialMovingAverage(data.ToArray(), windowLength);
+            data.Add(22.27);
+            data.Add(22.19);
+            data.Add(22.08);
+            data.Add(22.17);
+            data.Add(22.18);
+            data.Add(22.13);
+            data.Add(22.23);
+            data.Add(22.43);
+            data.Add(22.24);
+            data.Add(22.29);
+            data.Add(22.15);
+            data.Add(22.39);
+            data.Add(22.38);
+            data.Add(22.61);
+
+            return ExponentialMovingAverage.Calculate(data.ToArray(), period);
         }
 
         public static void CalculateRSI()
@@ -31,6 +44,23 @@ namespace Logic.HelperMethods
             closePricesData.Add(23.82);
             closePricesData.Add(23.87);
             RelativeStrengthIndex.CalculateRSI(closePricesData.ToArray());
+        }
+
+        public static double[] CalculateEMA(string symbol, int window, int period)
+        {
+            double[] closePrices = null;
+
+            using (InvestmentAnalysisContext context = new InvestmentAnalysisContext())
+            {
+                closePrices = context.HistoricalDataBlocks
+                    .Where(q => q.Symbol.Equals(symbol))
+                    .OrderByDescending(q => q.RecordDate)
+                    .Take(window)
+                    .Select(c => (double) c.LastPrice)
+                    .ToArray();
+            }
+
+            return ExponentialMovingAverage.Calculate(closePrices, period);
         }
     }
 }

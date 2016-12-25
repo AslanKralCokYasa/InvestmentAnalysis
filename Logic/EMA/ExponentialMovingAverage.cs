@@ -8,14 +8,14 @@ namespace Logic.EMA
 {
     public class ExponentialMovingAverage
     {
-        public static double[] CalculateExponentialMovingAverage(double[] data, int window)
+        public static double[] Calculate(double[] data, int period)
         {
-            if (data.Length < window)
+            if (data.Length < period)
                 return null;
 
-            int diff = data.Length - window;
-            double[] newdata = data.Take(window).ToArray();
-            double factor = CalculateFactor(window);
+            int diff = data.Length - period;
+            double[] newdata = data.Take(period).ToArray();
+            double factor = CalculateFactor(period);
             double sma = Average(newdata);
 
             IList<double> result = new List<double>();
@@ -24,7 +24,7 @@ namespace Logic.EMA
             for (int i = 0; i < diff; i++)
             {
                 double prev = result[result.Count - 1];
-                double price = data[window + i];
+                double price = data[period + i];
                 double next = factor * (price - prev) + prev;
                 result.Add(Math.Round(next, 2));
             }
