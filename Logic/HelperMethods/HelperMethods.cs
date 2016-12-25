@@ -60,7 +60,23 @@ namespace Logic.HelperMethods
                     .ToArray();
             }
 
-            return ExponentialMovingAverage.Calculate(closePrices, period);
+            return ExponentialMovingAverage.Calculate(closePrices.Reverse().ToArray(), period);
+        }
+
+        public static HistoricalDataBlock[] GetHistoricalDataBlock(string symbol, int window)
+        {
+            HistoricalDataBlock[] historicalDataBlock = null;
+
+            using (InvestmentAnalysisContext context = new InvestmentAnalysisContext())
+            {
+                historicalDataBlock = context.HistoricalDataBlocks
+                    .Where(q => q.Symbol.Equals(symbol))
+                    .OrderByDescending(q => q.RecordDate)
+                    .Take(window)
+                    .ToArray();
+            }
+
+            return historicalDataBlock.Reverse().ToArray();
         }
     }
 }
