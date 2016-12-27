@@ -19,14 +19,14 @@ namespace Logic.EMA
             double sma = Average(newdata);
 
             IList<double> result = new List<double>();
-            result.Add(Math.Round(sma, 2));
+            result.Add(Math.Round(sma, 4));
 
             for (int i = 0; i < diff; i++)
             {
                 double prev = result[result.Count - 1];
                 double price = data[period + i];
                 double next = factor * (price - prev) + prev;
-                result.Add(Math.Round(next, 2));
+                result.Add(Math.Round(next, 4));
             }
 
             return result.ToArray();
@@ -57,7 +57,7 @@ namespace Logic.EMA
             if (days < 0)
                 return 0;
 
-            return 2.0 / (days + 1);
+            return 2.0000 / (days + 1);
         }
     }
 }

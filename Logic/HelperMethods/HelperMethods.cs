@@ -69,11 +69,21 @@ namespace Logic.HelperMethods
 
             using (InvestmentAnalysisContext context = new InvestmentAnalysisContext())
             {
-                historicalDataBlock = context.HistoricalDataBlocks
-                    .Where(q => q.Symbol.Equals(symbol))
-                    .OrderByDescending(q => q.RecordDate)
-                    .Take(window)
-                    .ToArray();
+                if (0 == window)
+                {
+                    historicalDataBlock = context.HistoricalDataBlocks
+                        .Where(q => q.Symbol.Equals(symbol))
+                        .OrderByDescending(q => q.RecordDate)
+                        .ToArray();
+                }
+                else
+                {
+                    historicalDataBlock = context.HistoricalDataBlocks
+                        .Where(q => q.Symbol.Equals(symbol))
+                        .OrderByDescending(q => q.RecordDate)
+                        .Take(window)
+                        .ToArray();
+                }
             }
 
             return historicalDataBlock.Reverse().ToArray();

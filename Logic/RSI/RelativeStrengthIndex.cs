@@ -14,9 +14,23 @@ namespace Logic.RSI
 
             double sumGain = 0;
             double sumLoss = 0;
+
             for (int i = 1; i < prices.Length; i++)
             {
+                //double currentClose = prices[i];
+                //double prevClose = prices[i-1];
+
+                //if (currentClose < prevClose)
+                //{
+                //    sumLoss += prevClose - currentClose;
+                //}
+                //else if (currentClose > prevClose)
+                //{
+                //    sumGain += currentClose - prevClose;
+                //}
+                
                 var difference = prices[i] - prices[i - 1];
+
                 if (difference >= 0)
                 {
                     sumGain += difference;
@@ -45,7 +59,7 @@ namespace Logic.RSI
             
             for (int i = resultLength-1; i >= 0; i--)
             {
-                results[i] = Calculate(prices.Skip(resultLength - i).Take(period));
+                results[i] = Calculate(prices.Skip(resultLength -1 - i).Take(period+1));
             }
 
             return results;
