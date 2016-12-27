@@ -29,14 +29,51 @@ namespace Test
 
             //HelperMethods.CalculateRSI("GARAN", 20);
 
-            EMA("GARAN", 18, 50);
-            EMA("GARAN", 19, 50);
-            EMA("GARAN", 20, 50);
-            EMA("GARAN", 21, 50);
-            EMA("GARAN", 22, 50);
-            EMA("GARAN", 23, 50);
-            EMA("GARAN", 24, 50);
-            EMA("GARAN", 25, 50);
+            HistoricalDataBlock[] historicalData = HelperMethods.GetHistoricalDataBlock("GARAN");
+
+            PeriodInfo maxProfitPeriodInfo = new PeriodInfo { ProfitOrLoss = 0.00 };
+            PeriodInfo maxLossPeriodInfo = new PeriodInfo { ProfitOrLoss = 0.00 };
+
+            double safe = 0.00;
+
+            for (int fasterPeriod = 5; fasterPeriod < 31; fasterPeriod++)
+            {
+                for (int slowerPeriod = 8; slowerPeriod < 61; slowerPeriod++)
+                {
+                    if (fasterPeriod + 2 > slowerPeriod)
+                        continue;
+
+                    safe = EMA("GARAN", historicalData, fasterPeriod, slowerPeriod);
+
+                    if (safe > maxProfitPeriodInfo.ProfitOrLoss)
+                    {
+                        maxProfitPeriodInfo.FasterPeriod = fasterPeriod;
+                        maxProfitPeriodInfo.SlowerPeriod = slowerPeriod;
+                        maxProfitPeriodInfo.ProfitOrLoss = safe;
+                    }
+
+                    if (safe < maxLossPeriodInfo.ProfitOrLoss)
+                    {
+                        maxLossPeriodInfo.FasterPeriod = fasterPeriod;
+                        maxLossPeriodInfo.SlowerPeriod = slowerPeriod;
+                        maxLossPeriodInfo.ProfitOrLoss = safe;
+                    }
+                }
+            }
+
+            Console.WriteLine(maxProfitPeriodInfo.ToString());
+            Console.WriteLine(maxLossPeriodInfo.ToString());
+
+            //EMA("GARAN", historicalData, 18, 50);
+            //EMA("GARAN", historicalData, 19, 50);
+            //EMA("GARAN", historicalData, 20, 50);
+            //EMA("GARAN", historicalData, 21, 50);
+            //EMA("GARAN", historicalData, 22, 50);
+            //EMA("GARAN", historicalData, 23, 50);
+            //EMA("GARAN", historicalData, 24, 50);
+            //EMA("GARAN", historicalData, 25, 50);
+
+            //Console.WriteLine("*********************************************");
         }
 
         private static List<ResultInfo> getDecisionResults(int lastYearData, int firstLength, int secondLength, string stockName)
@@ -115,19 +152,19 @@ namespace Test
             Console.WriteLine("*********************************************");
         }
 
-        private static void EMA(string symbol, int fasterPeriod, int slowerPeriod, int window = 0)
+        private static double EMA(string symbol, HistoricalDataBlock[] historicalDataBlocks, int fasterPeriod, int slowerPeriod, int window = 0)
         {
             Console.WriteLine("*********************************************");
             Console.WriteLine("SYMBOL = {0}, WINDOW = {1}, FASTER_PERIOD = {2}, SLOWER_PERIOD = {3}",
                 symbol, window, fasterPeriod, slowerPeriod);
 
-            HistoricalDataBlock[] historicalDataBlocks = HelperMethods.GetHistoricalDataBlock(symbol, window);
+            //HistoricalDataBlock[] historicalDataBlocks = HelperMethods.GetHistoricalDataBlock(symbol, window);
             double[] data = historicalDataBlocks.Select(c => (double)c.LastPrice).ToArray();
             double[] emaFaster = ExponentialMovingAverage.Calculate(data, fasterPeriod).Skip(slowerPeriod - fasterPeriod).ToArray();
             double[] emaSlower = ExponentialMovingAverage.Calculate(data, slowerPeriod);
 
-            Console.WriteLine("BLOCK_LENGTH = {0}, DATA_LENGTH = {1}, EMA_FASTER_LENGTH = {2}, EMA_SLOWER_LENGTH = {3}", 
-                historicalDataBlocks.Length, data.Length, emaFaster.Length, emaSlower.Length);
+            //Console.WriteLine("BLOCK_LENGTH = {0}, DATA_LENGTH = {1}, EMA_FASTER_LENGTH = {2}, EMA_SLOWER_LENGTH = {3}", 
+            //    historicalDataBlocks.Length, data.Length, emaFaster.Length, emaSlower.Length);
 
             List<PositionInfo> positionInfoList = new List<PositionInfo>(); 
 
@@ -167,8 +204,10 @@ namespace Test
                 previousSign = currentSign;
             }
 
-            Console.WriteLine("*********************************************");
+            //Console.WriteLine("*********************************************");
             Console.WriteLine("TOTAL POSITION COUNT: " + positionInfoList.Count);
+
+            double safe = 0.00;
 
             if (1 == positionInfoList.Count % 2)
             {
@@ -177,7 +216,6 @@ namespace Test
 
             if (positionInfoList.Count > 0)
             {
-                double safe = 0.00;
                 double price = 0.00;
 
                 for (int i = 0; i < positionInfoList.Count; i++)
@@ -196,8 +234,10 @@ namespace Test
 
                 Console.WriteLine("TOTAL POSITION PROFIT / LOSS: " + safe);
             }
-            
-            Console.WriteLine("*********************************************");
+
+            return safe;
+
+            //Console.WriteLine("*********************************************");
         }
     }
 
@@ -210,6 +250,22 @@ namespace Test
         public override string ToString()
         {
             return this.Date.ToString("yyyy-MM-dd") + " # " + this.Price.ToString("F") + " # " + this.Type;
+        }
+    }
+
+    public class PeriodInfo
+    {
+        public int FasterPeriod;
+        public int SlowerPeriod;
+        public double ProfitOrLoss;
+
+        public override string ToString()
+        {
+            return "......................"
+                + "FasterPeriod: " + this.FasterPeriod
+                + "SlowerPeriod: " + this.SlowerPeriod
+                + "ProfitOrLoss: " + this.ProfitOrLoss
+                + ".......................";
         }
     }
 }

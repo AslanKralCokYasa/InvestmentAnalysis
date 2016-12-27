@@ -63,7 +63,7 @@ namespace Logic.HelperMethods
             return ExponentialMovingAverage.Calculate(closePrices.Reverse().ToArray(), period);
         }
 
-        public static HistoricalDataBlock[] GetHistoricalDataBlock(string symbol, int window)
+        public static HistoricalDataBlock[] GetHistoricalDataBlock(string symbol, int window = 0)
         {
             HistoricalDataBlock[] historicalDataBlock = null;
 
