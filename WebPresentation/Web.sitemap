@@ -11,8 +11,8 @@
       <siteMapNode url="~/Admin/UserManagement/UserManagement.aspx" title="Rol Yönetimi"  description="" />
     </siteMapNode>
 
-    <siteMapNode title="Organizasyon Yönetim Paneli">
-      <siteMapNode url="~/Transactions/OrganizationManagement/Organization.aspx" title="Organizasyonlar"  description="" />
+    <siteMapNode title="Portfolio Yönetim Paneli">
+      <siteMapNode url="~/Transactions/PortfolioManagement/Portfolio.aspx" title="Organizasyonlar"  description="" />
     </siteMapNode>
 
     <siteMapNode title="Bayi Yönetim Paneli">

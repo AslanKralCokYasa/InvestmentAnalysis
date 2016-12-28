@@ -317,11 +317,14 @@
     </None>
     <Content Include="Transactions\DealerManagement\Dealer.aspx" />
     <Content Include="Transactions\OrganizationManagement\Organization.aspx" />
+    <Content Include="Portfolio.aspx" />
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -350,6 +353,13 @@
       <DependentUpon>Organization.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Portfolio.aspx.cs">
+      <DependentUpon>Portfolio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Portfolio.aspx.designer.cs">
+      <DependentUpon>Portfolio.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
@@ -360,8 +370,14 @@
       <Project>{9dc47a73-5934-49f5-92ee-991222d85b8e}</Project>
       <Name>Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Test\Test.csproj">
+      <Project>{206be7ac-82f5-4a6c-813b-83ee6eec1c63}</Project>
+      <Name>Test</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Transactions\PortfolioManagement\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

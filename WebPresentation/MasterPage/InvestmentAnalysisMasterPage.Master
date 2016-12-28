@@ -114,10 +114,8 @@
                     <div class="content">
                         <ul>
                             <li><a href="../Default.aspx">Ana Sayfa</a></li>
-                            <li><a href="../Transactions/OrganizationManagement/Organization.aspx">
+                            <li><a href="../Portfolio.aspx">
                                 Forecast Your Investment</a></li>
-                            <li><a href="../Transactions/DealerManagement/Dealer.aspx">
-                                Dummy1</a></li>
                         </ul>
                     </div>
                 </div>
